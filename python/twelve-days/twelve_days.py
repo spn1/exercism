@@ -6,11 +6,11 @@ nth = [
     'fifth',
     'sixth',
     'seventh',
-    'eigth',
+    'eighth',
     'ninth',
     'tenth',
     'eleventh',
-    'twelth'
+    'twelfth'
 ]
 
 phrases = [
@@ -30,16 +30,18 @@ phrases = [
 
 def recite_verse(verse):
     result = ['On the {} day of Christmas my true love gave to me: '.format(nth[verse - 1])]
-    [
-        result.append('{}, '.format(phrases[v])) if v == verse else result.append('and {}.'.format(phrases[v])) \
-            for v in reversed(range(0, verse))
-    ]
-    return result
+
+    for day in reversed(range(0, verse)):
+        result.append('{}'.format(phrases[day])) if day != 0 or verse == 1 else result.append('and {}'.format(phrases[day]))
+        result.append(', ') if day > 0 else result.append('.')
+
+    return ''.join(result)
 
 def recite(start_verse, end_verse):
-    current_verse = start_verse
-    return recite_verse(current_verse)
+    result = []
 
-print(recite(1,1));
-print(recite(4,2));
-print(recite(12,12));
+    for current_verse in range(start_verse, end_verse + 1):
+        verse = recite_verse(current_verse)
+        result.append(verse)
+
+    return result
