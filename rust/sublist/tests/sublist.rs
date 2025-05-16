@@ -30,7 +30,7 @@ fn non_empty_list_contains_empty_list() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn list_equals_itself() {
     let list_one: &[i32] = &[1, 2, 3];
     let list_two: &[i32] = &[1, 2, 3];
@@ -40,7 +40,7 @@ fn list_equals_itself() {
 }
 
 #[test]
-#[ignore]
+// #[ignore]
 fn different_lists() {
     let list_one: &[i32] = &[1, 2, 3];
     let list_two: &[i32] = &[2, 3, 4];
